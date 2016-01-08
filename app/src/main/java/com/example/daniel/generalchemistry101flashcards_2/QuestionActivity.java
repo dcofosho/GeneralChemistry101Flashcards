@@ -53,7 +53,7 @@ public class QuestionActivity extends Activity  {
     ArrayList<String> finishedSubjects;
     ArrayList<Integer> usedIdList;
 //    ArrayList<Integer> usedIntIds;
-    ArrayList<Integer> used_Ids;
+//    List<UsedId> used_Ids;
     int questionId;
 
     TextView tryAgainTextView;
@@ -84,7 +84,7 @@ public class QuestionActivity extends Activity  {
         subject= extras.getString("subject");
         ScoreboardHelper scoreboardHelper = new ScoreboardHelper(this);
         SQLiteDatabase score_db = scoreboardHelper.getWritableDatabase();
-//        units_score= extras.getInt("units_score");
+
 
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
@@ -189,7 +189,6 @@ public class QuestionActivity extends Activity  {
 
 
 
-
         if(arrayList.isEmpty()){
             Intent intent;
             intent = new Intent(QuestionActivity.this, MainActivity.class);
@@ -207,8 +206,12 @@ public class QuestionActivity extends Activity  {
             finish();
             startActivity(intent);
         } else {
-
+            IdHelper idHelper = new IdHelper(this);
+            SQLiteDatabase id_db = idHelper.getWritableDatabase();
             questionId = arrayList.get(0);
+            idHelper.insertUsedId(new UsedId(arrayList.get(0)));
+            List<Integer>used_Ids=idHelper.getAllUsedIds();
+            System.out.println("usedId list in Questionactivity" + used_Ids);
             DBHelper helper = new DBHelper(this);
             SQLiteDatabase db = helper.getReadableDatabase();
             this_question = helper.readQuestion(questionId);

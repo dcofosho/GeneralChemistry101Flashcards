@@ -25,21 +25,11 @@ import java.util.List;
  */
 public class MainActivity extends Activity {
 
-    int score;
-    int units_score;
-    int periodic_score;
-    int atomic_score;
-    int bond_score;
-    int ph_score;
-    int electro_score;
-    int solubility_score;
-    int stoich_score;
-    int thermo_score;
 
-    List<UsedId> used_Ids;
+    List<Integer> used_Ids;
     ArrayList<String> finished_subjects;
     Bundle extras;
-    ArrayList<Integer> usedIntIds;
+    ArrayList<Integer> usedIds;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -47,11 +37,10 @@ public class MainActivity extends Activity {
 
         extras=getIntent().getExtras();
 
-//        IdHelper idHelper = new IdHelper(this);
-//        SQLiteDatabase id_db = idHelper.getReadableDatabase();
-//        used_Ids=idHelper.getAllUsedIds();
-//        System.out.println("usedId list in mainactivity"+used_Ids);
-
+        IdHelper idHelper = new IdHelper(this);
+        SQLiteDatabase id_db = idHelper.getReadableDatabase();
+        used_Ids=idHelper.getAllUsedIds();
+        System.out.println("usedId list in mainactivity"+used_Ids);
 
 
 
@@ -66,14 +55,7 @@ public class MainActivity extends Activity {
 //            used_Ids=idHelper.getAllUsedIds();
 //        }
 
-//        if(getIntent().hasExtra("used_Ids")){
-//            Bundle bundle=getIntent().getExtras();
-//            used_Ids=bundle.getIntegerArrayList("used_Ids");
-//        }else{
-//            int[] array = {0};
-//            used_Ids= new ArrayList(Arrays.asList(array));
-//        }
-
+//
 
         setContentView(R.layout.activity_main);
         Subject units = new Subject("Units and measurements", ResourcesCompat.getDrawable(getResources(), R.drawable.units, null));
@@ -101,19 +83,20 @@ public class MainActivity extends Activity {
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+//        used_Ids=idHelper.getAllUsedIds();
+//        System.out.println("usedId list in mainactivity" + used_Ids);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i;
 
                 if (position == 0) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "units");
-
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 100);
-                        Log.i("usedID inside for loop", usedId.toString());
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+100)) {
                             arrayList.add(k + 100);
                         }
                     }
@@ -124,8 +107,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "periodic");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 200);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+200)) {
                             arrayList.add(k + 200);
                         }
                     }
@@ -135,8 +117,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "atomic");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 300);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+300)) {
                             arrayList.add(k + 300);
                         }
                     }
@@ -146,8 +127,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "bonding");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 400);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+400)) {
                             arrayList.add(k + 400);
                         }
                     }
@@ -157,8 +137,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "ph");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 500);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+500)) {
                             arrayList.add(k + 500);
                         }
                     }
@@ -168,8 +147,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "electro");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 600);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+600)) {
                             arrayList.add(k + 600);
                         }
                     }
@@ -179,8 +157,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "solubility");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 700);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+700)) {
                             arrayList.add(k + 700);
                         }
                     }
@@ -190,8 +167,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "stoich");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 800);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+800)) {
                             arrayList.add(k + 800);
                         }
                     }
@@ -201,8 +177,7 @@ public class MainActivity extends Activity {
                     i.putExtra("subject", "thermo");
                     ArrayList<Integer> arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
-                        UsedId usedId = new UsedId(k + 900);
-                        if (used_Ids==null ||!used_Ids.contains(usedId)) {
+                        if (!used_Ids.contains(k+900)) {
                             arrayList.add(k + 900);
                         }
                     }

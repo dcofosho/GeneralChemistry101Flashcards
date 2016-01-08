@@ -45,18 +45,17 @@ public class IdHelper extends SQLiteOpenHelper {
         id_db.close();
         Log.i("DB", "UsedId got inserted");
     }
-    public List<UsedId> getAllUsedIds(){
-        List<UsedId> usedIdList = new LinkedList<UsedId>();
+    public List<Integer> getAllUsedIds(){
+        List<Integer> usedIdList = new LinkedList<Integer>();
         String query = "SELECT * FROM UsedId";
 
         SQLiteDatabase id_db = this.getReadableDatabase();
         Cursor cursor = id_db.rawQuery(query, null);
 
-        UsedId usedId = null;
+        int usedId;
         if (cursor.moveToFirst()) {
             do {
-                usedId = new UsedId();
-                usedId.setUsedId(Integer.parseInt(cursor.getString(0)));
+                usedId=Integer.parseInt(cursor.getString(0));
                 usedIdList.add(usedId);
             } while (cursor.moveToNext());
         }
