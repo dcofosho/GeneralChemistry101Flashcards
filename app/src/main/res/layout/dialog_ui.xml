@@ -5,7 +5,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dialog"
+        android:text="@string/dialog_message"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -13,8 +13,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:id="@+id/ok"
+        android:text="@string/start_over"
+        android:id="@+id/startOver"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -23,9 +23,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:id="@+id/cancel"
-        android:layout_alignTop="@+id/ok"
+        android:text="@string/new_subject"
+        android:id="@+id/newSubject"
+        android:layout_alignTop="@+id/startOver"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -34,6 +34,7 @@ public class MainActivity extends FragmentActivity {
     Bundle extras;
     ArrayList<Integer> usedIds;
     MyDialog dialog;
+    String subject;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,10 +95,12 @@ public class MainActivity extends FragmentActivity {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i;
+
                 ArrayList<Integer> arrayList;
                 if (position == 0) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "units");
+                    subject="units";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+100)) {
@@ -109,6 +112,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 1) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "periodic");
+                    subject="periodic";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+200)) {
@@ -129,6 +133,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 3) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "bonding");
+                    subject="bonding";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+400)) {
@@ -139,6 +144,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 4) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "ph");
+                    subject="ph";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+500)) {
@@ -149,6 +155,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 5) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "electro");
+                    subject="electro";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+600)) {
@@ -159,6 +166,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 6) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "solubility");
+                    subject="solubility";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+700)) {
@@ -169,6 +177,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 7) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "stoich");
+                    subject="stoich";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+800)) {
@@ -179,6 +188,7 @@ public class MainActivity extends FragmentActivity {
                 } else {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "thermo");
+                    subject="thermo";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+900)) {
@@ -188,6 +198,9 @@ public class MainActivity extends FragmentActivity {
                 }
                 if(arrayList.isEmpty()){
                     dialog = new MyDialog();
+                    Bundle args = new Bundle();
+                    args.putString("subject",subject);
+                    dialog.setArguments(args);
                     dialog.show(getSupportFragmentManager(), "MyDialog");
 //                    Toast.makeText(MainActivity.this,
 //                            "You've already answered all of those questions! Pick another subject", Toast.LENGTH_LONG).show();
