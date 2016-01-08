@@ -95,7 +95,7 @@ public class QuestionActivity extends Activity  {
                 Log.i("units_score = ", units_score + "");
             }
             startingOver=false;
-        }
+        }//
 
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
