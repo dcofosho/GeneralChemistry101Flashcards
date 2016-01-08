@@ -93,9 +93,57 @@ public class QuestionActivity extends Activity  {
                 cv.put("score", units_score); //These Fields should be your String values of actual column names
                 score_db.update("Scoreboards", cv, "id=" + 0, null);
                 Log.i("units_score = ", units_score + "");
+            }else if(subject.equals("periodic")) {
+                periodic_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", periodic_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 1, null);
+                Log.i("periodic_score = ", periodic_score + "");
+            }else if(subject.equals("atomic")) {
+                atomic_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", atomic_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 2, null);
+                Log.i("atomic_score = ", atomic_score + "");
+            }else if(subject.equals("bonding")) {
+                bond_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", bond_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 3, null);
+                Log.i("bond_score = ", bond_score + "");
+            }else if(subject.equals("ph")) {
+                ph_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", ph_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 4, null);
+                Log.i("ph_score = ", ph_score + "");
+            }else if(subject.equals("electro")) {
+                electro_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", electro_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 5, null);
+                Log.i("electro_score = ", electro_score + "");
+            } else if(subject.equals("solubility")) {
+                solubility_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", solubility_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 6, null);
+                Log.i("solubility_score = ", solubility_score + "");
+            } else if(subject.equals("stoich")) {
+                stoich_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", stoich_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 7, null);
+                Log.i("stoich_score = ", stoich_score + "");
+            } else {
+                thermo_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", thermo_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 8, null);
+                Log.i("thermo_score = ", thermo_score + "");
             }
             startingOver=false;
-        }//
+        }
 
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
@@ -383,7 +431,7 @@ public class QuestionActivity extends Activity  {
             mIntent.putExtra("periodic_score", periodic_score);
             mIntent.putExtra("atomic_score", atomic_score);
             mIntent.putExtra("bond_score", bond_score);
-            mIntent.putExtra("ph_score", ph_score);
+        mIntent.putExtra("ph_score", ph_score);
             mIntent.putExtra("electro_score", electro_score);
             mIntent.putExtra("solubility_score", solubility_score);
             mIntent.putExtra("stoich_score", stoich_score);
