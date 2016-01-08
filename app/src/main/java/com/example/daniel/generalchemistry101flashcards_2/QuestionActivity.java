@@ -192,17 +192,7 @@ public class QuestionActivity extends Activity  {
         if(arrayList.isEmpty()){
             Intent intent;
             intent = new Intent(QuestionActivity.this, MainActivity.class);
-//            intent.putExtra("units_score", units_score);
-//            intent.putExtra("periodic_score", periodic_score);
-//            intent.putExtra("atomic_score", atomic_score);
-//            intent.putExtra("bond_score", bond_score);
-//            intent.putExtra("ph_score", ph_score);
-//            intent.putExtra("electro_score", electro_score);
-//            intent.putExtra("solubility_score", solubility_score);
-//            intent.putExtra("stoich_score", stoich_score);
-//            intent.putExtra("thermo_score", thermo_score);
-//            intent.putExtra("score", score);
-//            intent.putIntegerArrayListExtra("usedIds", usedIdList);
+
             finish();
             startActivity(intent);
         } else {
@@ -387,8 +377,6 @@ public class QuestionActivity extends Activity  {
             mIntent.putExtra("solubility_score", solubility_score);
             mIntent.putExtra("stoich_score", stoich_score);
             mIntent.putExtra("thermo_score", thermo_score);
-//            mIntent.putIntegerArrayListExtra("used_Ids", used_Ids);
-//            mIntent.putExtra("score", score);
             finish();
             startActivity(mIntent);
     }
@@ -397,18 +385,7 @@ public class QuestionActivity extends Activity  {
 //        arrayList.remove(arrayList.indexOf(questionId));
         Intent intent;
         intent = new Intent(QuestionActivity.this, MainActivity.class);
-//        intent.putExtra("units_score", units_score);
-//        intent.putExtra("periodic_score", periodic_score);
-//        intent.putExtra("atomic_score", atomic_score);
-//        intent.putExtra("bond_score", bond_score);
-//        intent.putExtra("ph_score", ph_score);
-//        intent.putExtra("electro_score", electro_score);
-//        intent.putExtra("solubility_score", solubility_score);
-//        intent.putExtra("stoich_score", stoich_score);
-//        intent.putExtra("thermo_score", thermo_score);
-//        intent.putExtra("score", score);
-//        intent.putIntegerArrayListExtra("used_Ids", used_Ids);
-//        intent.putIntegerArrayListExtra("usedIntIds", usedIntIds);
+
         finish();
         startActivity(intent);
     }

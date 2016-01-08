@@ -1,10 +1,13 @@
 package com.example.daniel.generalchemistry101flashcards_2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
 import android.text.Layout;
 import android.util.Log;
@@ -23,14 +26,14 @@ import java.util.List;
 /**
  * Created by Daniel on 12/27/2015.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
 
     List<Integer> used_Ids;
     ArrayList<String> finished_subjects;
     Bundle extras;
     ArrayList<Integer> usedIds;
-
+    MyDialog dialog;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class MainActivity extends Activity {
 
         IdHelper idHelper = new IdHelper(this);
         SQLiteDatabase id_db = idHelper.getReadableDatabase();
+        SQLiteDatabase id_db2 = idHelper.getWritableDatabase();
         used_Ids=idHelper.getAllUsedIds();
         System.out.println("usedId list in mainactivity"+used_Ids);
 
@@ -183,8 +187,10 @@ public class MainActivity extends Activity {
                     }
                 }
                 if(arrayList.isEmpty()){
-                    Toast.makeText(MainActivity.this,
-                            "You've already answered all of those questions! Pick another subject", Toast.LENGTH_LONG).show();
+                    dialog = new MyDialog();
+                    dialog.show(getSupportFragmentManager(), "MyDialog");
+//                    Toast.makeText(MainActivity.this,
+//                            "You've already answered all of those questions! Pick another subject", Toast.LENGTH_LONG).show();
                 }else {
                     Collections.shuffle(arrayList);
                     i.putIntegerArrayListExtra("id_range", arrayList);
