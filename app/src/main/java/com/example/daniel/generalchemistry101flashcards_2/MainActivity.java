@@ -90,11 +90,11 @@ public class MainActivity extends Activity {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i;
-
+                ArrayList<Integer> arrayList;
                 if (position == 0) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "units");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+100)) {
                             arrayList.add(k + 100);
@@ -105,7 +105,7 @@ public class MainActivity extends Activity {
                 } else if (position == 1) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "periodic");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+200)) {
                             arrayList.add(k + 200);
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
                 } else if (position == 2) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "atomic");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+300)) {
                             arrayList.add(k + 300);
@@ -125,7 +125,7 @@ public class MainActivity extends Activity {
                 } else if (position == 3) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "bonding");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+400)) {
                             arrayList.add(k + 400);
@@ -135,7 +135,7 @@ public class MainActivity extends Activity {
                 } else if (position == 4) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "ph");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+500)) {
                             arrayList.add(k + 500);
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
                 } else if (position == 5) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "electro");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+600)) {
                             arrayList.add(k + 600);
@@ -155,7 +155,7 @@ public class MainActivity extends Activity {
                 } else if (position == 6) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "solubility");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+700)) {
                             arrayList.add(k + 700);
@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
                 } else if (position == 7) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "stoich");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+800)) {
                             arrayList.add(k + 800);
@@ -175,29 +175,21 @@ public class MainActivity extends Activity {
                 } else {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "thermo");
-                    ArrayList<Integer> arrayList = new ArrayList<>();
+                    arrayList = new ArrayList<>();
                     for (int k = 0; k < 3; k++) {
                         if (!used_Ids.contains(k+900)) {
                             arrayList.add(k + 900);
                         }
                     }
-                    i.putIntegerArrayListExtra("id_range", arrayList);
                 }
-
-//                Log.i("question_id", arrayList.get(0)+"");
-////                i.putExtra("used_Ids", used_Ids);
-////                i.putExtra("score", score);
-//                i.putExtra("units_score", units_score);
-//                i.putExtra("periodic_score", periodic_score);
-//                i.putExtra("atomic_score", atomic_score);
-//                i.putExtra("bond_score", bond_score);
-//                i.putExtra("ph_score", ph_score);
-//                i.putExtra("electro_score", electro_score);
-//                i.putExtra("solubility_score", solubility_score);
-//                i.putExtra("stoich_score", stoich_score);
-//                i.putExtra("thermo_score", thermo_score);
-
-                startActivity(i);
+                if(arrayList.isEmpty()){
+                    Toast.makeText(MainActivity.this,
+                            "You've already answered all of those questions! Pick another subject", Toast.LENGTH_LONG).show();
+                }else {
+                    Collections.shuffle(arrayList);
+                    i.putIntegerArrayListExtra("id_range", arrayList);
+                    startActivity(i);
+                }
             }
         });
         DBHelper helper = new DBHelper(this);
