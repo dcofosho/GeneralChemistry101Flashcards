@@ -73,7 +73,7 @@ public class QuestionActivity extends Activity  {
     int thermo_score;
 
 
-
+    Boolean startingOver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +84,18 @@ public class QuestionActivity extends Activity  {
         subject= extras.getString("subject");
         ScoreboardHelper scoreboardHelper = new ScoreboardHelper(this);
         SQLiteDatabase score_db = scoreboardHelper.getWritableDatabase();
+        startingOver = extras.getBoolean("starting_over");
 
+        if(startingOver) {
+            if(subject.equals("units")) {
+                units_score = 0;
+                ContentValues cv = new ContentValues();
+                cv.put("score", units_score); //These Fields should be your String values of actual column names
+                score_db.update("Scoreboards", cv, "id=" + 0, null);
+                Log.i("units_score = ", units_score + "");
+            }
+            startingOver=false;
+        }
 
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
@@ -377,6 +388,7 @@ public class QuestionActivity extends Activity  {
             mIntent.putExtra("solubility_score", solubility_score);
             mIntent.putExtra("stoich_score", stoich_score);
             mIntent.putExtra("thermo_score", thermo_score);
+            mIntent.putExtra("starting_over", false);
             finish();
             startActivity(mIntent);
     }
@@ -385,7 +397,7 @@ public class QuestionActivity extends Activity  {
 //        arrayList.remove(arrayList.indexOf(questionId));
         Intent intent;
         intent = new Intent(QuestionActivity.this, MainActivity.class);
-
+        intent.putExtra("starting_over", false);
         finish();
         startActivity(intent);
     }

@@ -207,6 +207,7 @@ public class MainActivity extends FragmentActivity {
                 }else {
                     Collections.shuffle(arrayList);
                     i.putIntegerArrayListExtra("id_range", arrayList);
+                    i.putExtra("starting_over", false);
                     startActivity(i);
                 }
             }
