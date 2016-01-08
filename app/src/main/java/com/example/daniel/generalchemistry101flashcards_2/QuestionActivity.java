@@ -22,6 +22,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Daniel on 12/27/2015.
@@ -49,7 +50,10 @@ public class QuestionActivity extends Activity  {
     Bundle extras;
 
     ArrayList<Integer> arrayList;
-//    ArrayList<Integer> used_Ids;
+    ArrayList<String> finishedSubjects;
+    ArrayList<Integer> usedIdList;
+//    ArrayList<Integer> usedIntIds;
+    ArrayList<Integer> used_Ids;
     int questionId;
 
     TextView tryAgainTextView;
@@ -75,10 +79,13 @@ public class QuestionActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         Log.i("QuestionActivity", "you made it to question activity");
+
         extras = getIntent().getExtras();
+        subject= extras.getString("subject");
         ScoreboardHelper scoreboardHelper = new ScoreboardHelper(this);
         SQLiteDatabase score_db = scoreboardHelper.getWritableDatabase();
 //        units_score= extras.getInt("units_score");
+
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
         } catch (Exception e){
@@ -87,7 +94,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(units_scoreboard);
             Log.i("units_score = ", units_score+"");
         }
-
         try{
             periodic_score=scoreboardHelper.readScoreboard(1).getScore();
         } catch (Exception e){
@@ -96,8 +102,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(periodic_scoreboard);
             Log.i("periodic_score = ", periodic_score+"");
         }
-//        periodic_score= extras.getInt("periodic_score");
-//        Log.i("periodic_score = ", periodic_score+"");
 
         try{
             atomic_score=scoreboardHelper.readScoreboard(2).getScore();
@@ -107,8 +111,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(atomic_scoreboard);
             Log.i("atomic_score = ", atomic_score+"");
         }
-//        atomic_score= extras.getInt("atomic_score");
-//        Log.i("atomic_score = ", atomic_score+"");
 
         try{
             bond_score=scoreboardHelper.readScoreboard(3).getScore();
@@ -118,9 +120,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(bonding_scoreboard);
             Log.i("bond_score = ", bond_score+"");
         }
-//        bond_score = extras.getInt("bond_score");
-//        Log.i("bond_score = ", bond_score+"");
-
 
         try{
             ph_score=scoreboardHelper.readScoreboard(4).getScore();
@@ -130,8 +129,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(ph_scoreboard);
             Log.i("ph_score = ", ph_score+"");
         }
-//        ph_score = extras.getInt("ph_score");
-//        Log.i("ph_score = ", ph_score+"");
 
         try{
             electro_score=scoreboardHelper.readScoreboard(5).getScore();
@@ -142,8 +139,6 @@ public class QuestionActivity extends Activity  {
             Log.i("electro_score = ", electro_score+"");
         }
 
-//        electro_score = extras.getInt("electro_score");
-//        Log.i("electro_score = ", electro_score+"");
 
         try{
             solubility_score=scoreboardHelper.readScoreboard(6).getScore();
@@ -153,8 +148,6 @@ public class QuestionActivity extends Activity  {
             scoreboardHelper.insertScoreboard(solubility_scoreboard);
             Log.i("solubility_score = ", solubility_score+"");
         }
-//        solubility_score= extras.getInt("solubility_score");
-//        Log.i("solubility_score = ", solubility_score+"");
 
         try{
             stoich_score=scoreboardHelper.readScoreboard(7).getScore();
@@ -165,28 +158,31 @@ public class QuestionActivity extends Activity  {
             Log.i("stoich_score = ", stoich_score+"");
         }
 
-//        stoich_score= extras.getInt("stoich_score");
-//        Log.i("stoich_score = ", stoich_score+"");
         try{
-                thermo_score=scoreboardHelper.readScoreboard(8).getScore();
+            thermo_score=scoreboardHelper.readScoreboard(8).getScore();
         } catch (Exception e){
             thermo_score = 0;
             Scoreboard thermo_scoreboard = new Scoreboard(8, "thermo", thermo_score);
             scoreboardHelper.insertScoreboard(thermo_scoreboard);
             Log.i("thermo_score = ", thermo_score+"");
         }
-//        thermo_score= extras.getInt("thermo_score");
-//        Log.i("thermo_score = ", thermo_score+"");
 
         Log.i("Scoreboards", scoreboardHelper.getAllScoreboards().toString());
         Log.i("units_scoreboard", scoreboardHelper.readScoreboard(0).getScore()+"");
         score=units_score+periodic_score+atomic_score+bond_score+ph_score+electro_score+solubility_score+stoich_score+thermo_score;
 
-
+//        IdHelper idHelper = new IdHelper(this);
+//        SQLiteDatabase id_db = idHelper.getWritableDatabase();
 //        score=extras.getInt("score");
         arrayList= getIntent().getIntegerArrayListExtra("id_range");
+//        UsedId usedId = new UsedId(arrayList.get(0));
+//        idHelper.insertUsedId(usedId);
+//        for(int i=0; i<idHelper.getAllUsedIds().size();i++) {
+//            usedIdList.add(Integer.parseInt(idHelper.getAllUsedIds().get(i).toString()));
+//        }
+//        System.out.println(usedIdList + "used_ids");
 
-        subject= extras.getString("subject");
+
 //        used_Ids=getIntent().getIntegerArrayListExtra("used_Ids");
 
 
@@ -197,22 +193,22 @@ public class QuestionActivity extends Activity  {
         if(arrayList.isEmpty()){
             Intent intent;
             intent = new Intent(QuestionActivity.this, MainActivity.class);
-            intent.putExtra("units_score", units_score);
-            intent.putExtra("periodic_score", periodic_score);
-            intent.putExtra("atomic_score", atomic_score);
-            intent.putExtra("bond_score", bond_score);
-            intent.putExtra("ph_score", ph_score);
-            intent.putExtra("electro_score", electro_score);
-            intent.putExtra("solubility_score", solubility_score);
-            intent.putExtra("stoich_score", stoich_score);
-            intent.putExtra("thermo_score", thermo_score);
+//            intent.putExtra("units_score", units_score);
+//            intent.putExtra("periodic_score", periodic_score);
+//            intent.putExtra("atomic_score", atomic_score);
+//            intent.putExtra("bond_score", bond_score);
+//            intent.putExtra("ph_score", ph_score);
+//            intent.putExtra("electro_score", electro_score);
+//            intent.putExtra("solubility_score", solubility_score);
+//            intent.putExtra("stoich_score", stoich_score);
+//            intent.putExtra("thermo_score", thermo_score);
 //            intent.putExtra("score", score);
+//            intent.putIntegerArrayListExtra("usedIds", usedIdList);
             finish();
             startActivity(intent);
         } else {
+
             questionId = arrayList.get(0);
-
-
             DBHelper helper = new DBHelper(this);
             SQLiteDatabase db = helper.getReadableDatabase();
             this_question = helper.readQuestion(questionId);
@@ -398,17 +394,18 @@ public class QuestionActivity extends Activity  {
 //        arrayList.remove(arrayList.indexOf(questionId));
         Intent intent;
         intent = new Intent(QuestionActivity.this, MainActivity.class);
-        intent.putExtra("units_score", units_score);
-        intent.putExtra("periodic_score", periodic_score);
-        intent.putExtra("atomic_score", atomic_score);
-        intent.putExtra("bond_score", bond_score);
-        intent.putExtra("ph_score", ph_score);
-        intent.putExtra("electro_score", electro_score);
-        intent.putExtra("solubility_score", solubility_score);
-        intent.putExtra("stoich_score", stoich_score);
-        intent.putExtra("thermo_score", thermo_score);
+//        intent.putExtra("units_score", units_score);
+//        intent.putExtra("periodic_score", periodic_score);
+//        intent.putExtra("atomic_score", atomic_score);
+//        intent.putExtra("bond_score", bond_score);
+//        intent.putExtra("ph_score", ph_score);
+//        intent.putExtra("electro_score", electro_score);
+//        intent.putExtra("solubility_score", solubility_score);
+//        intent.putExtra("stoich_score", stoich_score);
+//        intent.putExtra("thermo_score", thermo_score);
 //        intent.putExtra("score", score);
 //        intent.putIntegerArrayListExtra("used_Ids", used_Ids);
+//        intent.putIntegerArrayListExtra("usedIntIds", usedIntIds);
         finish();
         startActivity(intent);
     }
