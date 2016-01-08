@@ -48,7 +48,56 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
                 max=3;
                 subjectId=100;
                 whereClause="usedId BETWEEN 99 AND 103";
+            } else if(subject.equals("periodic")) {
+                i.putExtra("subject", "periodic");
+                min=0;
+                max=3;
+                subjectId=200;
+                whereClause="usedId BETWEEN 199 AND 203";
+            } else if(subject.equals("atomic")) {
+                i.putExtra("subject", "atomic");
+                min=0;
+                max=3;
+                subjectId=300;
+                whereClause="usedId BETWEEN 299 AND 303";
+            } else if(subject.equals("bonding")) {
+                i.putExtra("subject", "bonding");
+                min=0;
+                max=3;
+                subjectId=400;
+                whereClause="usedId BETWEEN 399 AND 403";
+            }else if(subject.equals("ph")) {
+                i.putExtra("subject", "ph");
+                min=0;
+                max=3;
+                subjectId=500;
+                whereClause="usedId BETWEEN 499 AND 503";
+            }else if(subject.equals("electro")) {
+                i.putExtra("subject", "electro");
+                min=0;
+                max=3;
+                subjectId=600;
+                whereClause="usedId BETWEEN 599 AND 603";
+            }else if(subject.equals("solubility")) {
+                i.putExtra("subject", "solubility");
+                min=0;
+                max=3;
+                subjectId=700;
+                whereClause="usedId BETWEEN 699 AND 703";
+            }else if(subject.equals("solubility")) {
+                i.putExtra("subject", "stoich");
+                min=0;
+                max=3;
+                subjectId=800;
+                whereClause="usedId BETWEEN 799 AND 803";
+            }else {
+                i.putExtra("subject", "thermo");
+                min=0;
+                max=3;
+                subjectId=700;
+                whereClause="usedId BETWEEN 899 AND 903";
             }
+
 
             id_db2.delete("UsedId",whereClause,null);
 
