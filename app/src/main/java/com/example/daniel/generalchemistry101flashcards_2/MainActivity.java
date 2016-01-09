@@ -100,10 +100,10 @@ public class MainActivity extends FragmentActivity {
                 if (position == 0) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "units");
-                    subject="units";
+                    subject = "units";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+100)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 100)) {
                             arrayList.add(k + 100);
                         }
                     }
@@ -112,10 +112,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 1) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "periodic");
-                    subject="periodic";
+                    subject = "periodic";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+200)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 200)) {
                             arrayList.add(k + 200);
                         }
                     }
@@ -124,8 +124,8 @@ public class MainActivity extends FragmentActivity {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "atomic");
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+300)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 300)) {
                             arrayList.add(k + 300);
                         }
                     }
@@ -133,10 +133,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 3) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "bonding");
-                    subject="bonding";
+                    subject = "bonding";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+400)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 400)) {
                             arrayList.add(k + 400);
                         }
                     }
@@ -144,10 +144,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 4) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "ph");
-                    subject="ph";
+                    subject = "ph";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+500)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 500)) {
                             arrayList.add(k + 500);
                         }
                     }
@@ -155,10 +155,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 5) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "electro");
-                    subject="electro";
+                    subject = "electro";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+600)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 600)) {
                             arrayList.add(k + 600);
                         }
                     }
@@ -166,10 +166,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 6) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "solubility");
-                    subject="solubility";
+                    subject = "solubility";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+700)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 700)) {
                             arrayList.add(k + 700);
                         }
                     }
@@ -177,10 +177,10 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 7) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "stoich");
-                    subject="stoich";
+                    subject = "stoich";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+800)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 800)) {
                             arrayList.add(k + 800);
                         }
                     }
@@ -188,23 +188,23 @@ public class MainActivity extends FragmentActivity {
                 } else {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "thermo");
-                    subject="thermo";
+                    subject = "thermo";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 3; k++) {
-                        if (!used_Ids.contains(k+900)) {
+                    for (int k = 0; k < 5; k++) {
+                        if (!used_Ids.contains(k + 900)) {
                             arrayList.add(k + 900);
                         }
                     }
                 }
-                if(arrayList.isEmpty()){
+                if (arrayList.isEmpty()) {
                     dialog = new MyDialog();
                     Bundle args = new Bundle();
-                    args.putString("subject",subject);
+                    args.putString("subject", subject);
                     dialog.setArguments(args);
                     dialog.show(getSupportFragmentManager(), "MyDialog");
 //                    Toast.makeText(MainActivity.this,
 //                            "You've already answered all of those questions! Pick another subject", Toast.LENGTH_LONG).show();
-                }else {
+                } else {
                     Collections.shuffle(arrayList);
                     i.putIntegerArrayListExtra("id_range", arrayList);
                     i.putExtra("starting_over", false);
@@ -215,43 +215,109 @@ public class MainActivity extends FragmentActivity {
         DBHelper helper = new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        Question science_question1 = new Question(100,"What is the main ingredient in air?", "Nitrogen", "Oxygen","Carbon Dioxide", "Hydrogen", "Nitrogen");
-        helper.insertQuestion(science_question1);
-        Question science_question2 = new Question(101,"Which is not a metal?", "Lithium", "Calcium","Manganese", "Bromide", "Bromide");
-        helper.insertQuestion(science_question2);
-        Question science_question3 = new Question(102,"Which substance is found in smoke detectors?", "Uranium", "Americium","Tungsten", "Carbon Monoxide", "Americium");
-        helper.insertQuestion(science_question3);
+        Question units_question1 = new Question(100,"Volume is a measurement of...", "How much matter is in a sample", "How much space a substance takes up","The ratio of a sample's size to mass", "The ratio of mass to size", "How much space a substance takes up");
+        helper.insertQuestion(units_question1);
+        Question units_question2 = new Question(101,"Which unit of length is longest?", "Centimeter", "Nanometer","Milimeter", "Decimeter", "Decimeter");
+        helper.insertQuestion(units_question2);
+        Question units_question3 = new Question(102,"Which correctly describes the difference between mass and weight?", "Mass is measured in kilograms and weight is measured in pounds.", "Objects in space have less mass","Mass is how much matter is in a sample, weight is the force of attraction with the ground", "Mass is the ratio of weight to density", "Mass is how much matter is in a sample, weight is the force of attraction with the ground");
+        helper.insertQuestion(units_question3);
+        Question units_question4 = new Question(103,"How many centimeters in a kilometer?", "1000", "10,000","100,000", "1,000,000", "100,000");
+        helper.insertQuestion(units_question4);
+        Question units_question5 = new Question(104,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Farenheit");
+        helper.insertQuestion(units_question5);
 
 
-        Question math_question1 = new Question(200, "The graph of a second order polynomial has what shape?", "hyperbola", "parabola", "square", "line", "parabola");
-        helper.insertQuestion(math_question1);
-        Question math_question2 = new Question(201, "Which of the following is NOT a prime number?", "7", "2", "17", "21", "21");
-        helper.insertQuestion(math_question2);
-        Question math_question3 = new Question(202, "Pi is equal to...", "The ratio of a circle's area to it's radius", "The ratio of a circle's circumference to radius", "The ratio of a circle's circumference to diameter", "The ratio of a square's diagonal to it's side", "The ratio of a circle's circumference to diameter");
-        helper.insertQuestion(math_question3);
+        Question periodic_question1 = new Question(200, "Which element has the highest electronegativity?", "Fluorine", "Chlorine", "Barium", "Francium", "Fluorine");
+        helper.insertQuestion(periodic_question1);
+        Question periodic_question2 = new Question(201, "In the periodic table, atomic radius increases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "right to left/top to bottom");
+        helper.insertQuestion(periodic_question2);
+        Question periodic_question3 = new Question(203, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
+        helper.insertQuestion(periodic_question3);
+        Question periodic_question4 = new Question(203, "In the periodic table, atomic mass decreases", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
+        helper.insertQuestion(periodic_question4);
+        Question periodic_question5 = new Question(204, "Metals are elements which....", "try to gain electrons, and are found on the right side of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.", "try to gain electrons, and are found on the top of the periodic table.", "try to lose electrons, and are found on the bottom of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.");
+        helper.insertQuestion(periodic_question5);
 
 
-        Question history_question1 = new Question(300, "The assisination of this politician sparked the first world war", "Heinrich Helmholtz", "Werner Herzog", "Leif Erikson", "Franz Ferdinand", "Franz Ferdinand");
-        helper.insertQuestion(history_question1);
-        Question history_question2 = new Question(301, "Which Iranian dynasty was overthrown in the 1979 revolution", "Qajar", "Safavid", "Pahlavi", "Zand", "Pahlavi");
-        helper.insertQuestion(history_question2);
-        Question history_question3 = new Question(302, "This body of water, opened for shipping in 1869, connects the Mediterranean sea with the Red Sea", "Strait of Gibraltar", "Suez Canal", "Persian Gulf", "Welland Canal", "Suez Canal");
-        helper.insertQuestion(history_question3);
+        Question atomic_question1 = new Question(300, "The charge on an electron is...", "equal to a proton's charge in magnitude and sign", "smaller than a proton's charge in magnitude but equal in sign", "equal to a proton's charge in magnitude but opposite sign", "greater than a protons charge but opposite sign", "equal to a proton's charge in magnitude but opposite sign");
+        helper.insertQuestion(atomic_question1);
+        Question atomic_question2 = new Question(301, "Different isotopes of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Neutrons");
+        helper.insertQuestion(atomic_question2);
+        Question atomic_question3 = new Question(302, "This body of water, opened for shipping in 1869, connects the Mediterranean sea with the Red Sea", "Strait of Gibraltar", "Suez Canal", "Persian Gulf", "Welland Canal", "Suez Canal");
+        helper.insertQuestion(atomic_question3);
+        Question atomic_question4 = new Question(303, "Different ions of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Electrons");
+        helper.insertQuestion(atomic_question4);
+        Question atomic_question5 = new Question(304, "All atoms of a given element have the same number of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Protons");
+        helper.insertQuestion(atomic_question5);
 
 
-        Question literature_question1 = new Question(400, "Paul French was actually a pen name used by this author", "Tom Robins", "Anne Rice", "Isaac Asimov", "Virginia Wolf", "Isaac Asimov");
-        helper.insertQuestion(literature_question1);
-        Question literature_question2 = new Question(401, "Which author is commonly associated with the post-modern movement?", "James Joyce", "Thomas Pynchon", "Jean Paul Sartre", "Franz Kafka", "Thomas Pynchon");
-        helper.insertQuestion(literature_question2);
-        Question literature_question3 = new Question(402, "Which book series, written by George RR Martin, became the basis for the TV show Game of Thrones?", "A Game of Thrones", "The Magician's Trilogy", "The Westeros Chronicles", "A Song of Ice and Fire", "A Song of Ice and Fire");
-        helper.insertQuestion(literature_question3);
+        Question bonding_question1 = new Question(400, "Ionic bonds occur...", "Between metals only", "Between non-metals only", "Between metalloids only", "Between metals and non-metals, or polyatomic ions", "Between metals and non-metals, or polyatomic ions");
+        helper.insertQuestion(bonding_question1);
+        Question bonding_question2 = new Question(401, "Non-polar bonds occur...", "Between metals only", "Between non-metals only", "Between two atoms of the same element only", "Between polyatomic ions only", "Between two atoms of the same element only");
+        helper.insertQuestion(bonding_question2);
+        Question bonding_question3 = new Question(402, "Polar molecules are characterized by...", "Asymmetric distribution of charge", "Symmetric distribution of charge", "Total positive charge", "total negative charge", "Asymmetric distribution of charge");
+        helper.insertQuestion(bonding_question3);
+        Question bonding_question4 = new Question(403, "Covalent bonds are formed when...", "Electrons are transferred between atoms", "Protons are transferred between atoms", "Electrons change energy levels", "Electrons are shared between atoms", "Electrons are shared between atoms");
+        helper.insertQuestion(bonding_question4);
+        Question bonding_question5 = new Question(404, "Which is the proper order, from weakest to strongest?", "Ionic, non-polar covalent, polar covalent", "Polar covalent, non-polar covalent, ionic", "non-polar covalent, polar covalent, ionic", "Ionic, polar covalent, non-polar covalent", "non-polar covalent, polar covalent, ionic");
+        helper.insertQuestion(bonding_question5);
 
-        Question arts_and_music_question1 = new Question(500, "What year did The Beatles break up?", "1968", "1969", "1970", "1971", "1970");
-        helper.insertQuestion(arts_and_music_question1);
-        Question arts_and_music_question2 = new Question(501, "This 1970s-80s American pop artist is known for simple human and animal forms, with works including 'Radiant Baby' and 'Dancing Dog'... ", "Andy Warhol", "Roy Lichtenstein,", "Keith Haring", "Jean‑Michel Basquiat", "Keith Haring");
-        helper.insertQuestion(arts_and_music_question2);
-        Question arts_and_music_question3 = new Question(501, "This 1970s-80s American pop artist is known for simple human and animal forms, with works including 'Radiant Baby' and 'Dancing Dog'... ", "Andy Warhol", "Roy Lichtenstein,", "Keith Haring", "Jean‑Michel Basquiat", "Keith Haring");
-        helper.insertQuestion(arts_and_music_question3);
+        Question ph_question1 = new Question(500,"Volume is a measurement of...", "How much matter is in a sample", "How much space a substance takes up","The ratio of a sample's size to mass", "The ratio of mass to size", "How much space a substance takes up");
+        helper.insertQuestion(ph_question1);
+        Question ph_question2 = new Question(501,"Which unit of length is longest?", "Centimeter", "Nanometer","Milimeter", "Decimeter", "Decimeter");
+        helper.insertQuestion(ph_question2);
+        Question ph_question3 = new Question(502,"Which correctly describes the difference between mass and weight?", "Mass is measured in kilograms and weight is measured in pounds.", "Objects in space have less mass","Mass is how much matter is in a sample, weight is the force of attraction with the ground", "Mass is the ratio of weight to density", "Mass is how much matter is in a sample, weight is the force of attraction with the ground");
+        helper.insertQuestion(ph_question3);
+        Question ph_question4 = new Question(503,"How many centimeters in a kilometer?", "1000", "10,000","100,000", "1,000,000", "100,000");
+        helper.insertQuestion(ph_question4);
+        Question ph_question5 = new Question(504,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Farenheit");
+        helper.insertQuestion(ph_question5);
+
+        Question electro_question1 = new Question(600, "Electrons flow in which direction in a battery (electrochemical cell)?", "Anode to cathode only", "Cathode to anode only", "Both directions", "Depends on the type of battery", "Anode to cathode only");
+        helper.insertQuestion(electro_question1);
+        Question electro_question2 = new Question(601, "In an electrolytic cell...?", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from cathode to anode and electricity is used");
+        helper.insertQuestion(electro_question2);
+        Question electro_question3 = new Question(602, "When an substance is reduced...", "It loses electrons and decreases in charge", "It gains electrons and decreases in charge", "It gains protons and increases in charge", "It gains electrons and increases in charge", "It gains electrons and decreases in charge");
+        helper.insertQuestion(electro_question3);
+        Question electro_question4 = new Question(603, "The cathode of a battery...", "is more electronegative than the anode", "is less electronegative than the anode", "has greater molar mass than the anode", "has smaller molar mass than the anode", "more electronegative than the anode");
+        helper.insertQuestion(electro_question4);
+        Question electro_question5 = new Question(602, "Which book series, written by George RR Martin, became the basis for the TV show Game of Thrones?", "A Game of Thrones", "The Magician's Trilogy", "The Westeros Chronicles", "A Song of Ice and Fire", "A Song of Ice and Fire");
+        helper.insertQuestion(electro_question5);
+
+        Question solubility_question1 = new Question(700, "Which element has the highest electronegativity?", "Fluorine", "Chlorine", "Barium", "Francium", "Fluorine");
+        helper.insertQuestion(solubility_question1);
+        Question solubility_question2 = new Question(701, "In the periodic table, atomic radius increases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "right to left/top to bottom");
+        helper.insertQuestion(solubility_question2);
+        Question solubility_question3 = new Question(703, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
+        helper.insertQuestion(solubility_question3);
+        Question solubility_question4 = new Question(703, "In the periodic table, atomic mass decreases", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
+        helper.insertQuestion(solubility_question4);
+        Question solubility_question5 = new Question(704, "Metals are elements which....", "try to gain electrons, and are found on the right side of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.", "try to gain electrons, and are found on the top of the periodic table.", "try to lose electrons, and are found on the bottom of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.");
+        helper.insertQuestion(solubility_question5);
+
+
+        Question stoich_question1 = new Question(800, "The charge on an electron is...", "equal to a proton's charge in magnitude and sign", "smaller than a proton's charge in magnitude but equal in sign", "equal to a proton's charge in magnitude but opposite sign", "greater than a protons charge but opposite sign", "equal to a proton's charge in magnitude but opposite sign");
+        helper.insertQuestion(stoich_question1);
+        Question stoich_question2 = new Question(801, "Different isotopes of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Neutrons");
+        helper.insertQuestion(stoich_question2);
+        Question stoich_question3 = new Question(802, "This body of water, opened for shipping in 1869, connects the Mediterranean sea with the Red Sea", "Strait of Gibraltar", "Suez Canal", "Persian Gulf", "Welland Canal", "Suez Canal");
+        helper.insertQuestion(stoich_question3);
+        Question stoich_question4 = new Question(803, "Different ions of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Electrons");
+        helper.insertQuestion(stoich_question4);
+        Question stoich_question5 = new Question(804, "All atoms of a given element have the same number of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Protons");
+        helper.insertQuestion(stoich_question5);
+
+
+        Question thermo_question1 = new Question(900, "Electrons flow in which direction in a battery (electrochemical cell)?", "Anode to cathode only", "Cathode to anode only", "Both directions", "Depends on the type of battery", "Anode to cathode only");
+        helper.insertQuestion(thermo_question1);
+        Question thermo_question2 = new Question(901, "In an electrolytic cell...?", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from cathode to anode and electricity is used");
+        helper.insertQuestion(thermo_question2);
+        Question thermo_question3 = new Question(902, "When an substance is reduced...", "It loses electrons and decreases in charge", "It gains electrons and decreases in charge", "It gains protons and increases in charge", "It gains electrons and increases in charge", "It gains electrons and decreases in charge");
+        helper.insertQuestion(thermo_question3);
+        Question thermo_question4 = new Question(904, "The cathode of a battery...", "is more electronegative than the anode", "is less electronegative than the anode", "has greater molar mass than the anode", "has smaller molar mass than the anode", "more electronegative than the anode");
+        helper.insertQuestion(thermo_question4);
+        Question thermo_question5 = new Question(905, "Which book series, written by George RR Martin, became the basis for the TV show Game of Thrones?", "A Game of Thrones", "The Magician's Trilogy", "The Westeros Chronicles", "A Song of Ice and Fire", "A Song of Ice and Fire");
+        helper.insertQuestion(thermo_question5);
 
 
         Log.i("Questions", helper.getAllQuestions().toString());
