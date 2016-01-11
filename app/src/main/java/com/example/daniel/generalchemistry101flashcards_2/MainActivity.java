@@ -231,7 +231,7 @@ public class MainActivity extends FragmentActivity {
         helper.insertQuestion(periodic_question1);
         Question periodic_question2 = new Question(201, "In the periodic table, atomic radius increases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "right to left/top to bottom");
         helper.insertQuestion(periodic_question2);
-        Question periodic_question3 = new Question(203, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
+        Question periodic_question3 = new Question(202, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
         helper.insertQuestion(periodic_question3);
         Question periodic_question4 = new Question(203, "In the periodic table, atomic mass decreases", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
         helper.insertQuestion(periodic_question4);

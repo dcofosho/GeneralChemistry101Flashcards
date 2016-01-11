@@ -72,29 +72,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/submitButton"
-        android:layout_gravity="center_horizontal"
-        />
+        android:id="@+id/submitButton" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next Question"
-            android:onClick="nextQuestion"
-            android:id="@+id/nextQuestionButton"
-            android:visibility="invisible" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Subject"
-            android:onClick="newSubject"
-            android:id="@+id/newSubjectButton"
-            android:visibility="invisible" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Question"
+        android:onClick="nextQuestion"
+        android:id="@+id/nextQuestionButton"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Subject"
+        android:onClick="newSubject"
+        android:id="@+id/newSubjectButton"
+        android:visibility="visible" />
 </LinearLayout>
