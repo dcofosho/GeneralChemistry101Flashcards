@@ -365,7 +365,7 @@ public class QuestionActivity extends Activity  {
                             SQLiteDatabase score_db = scoreboardHelper.getWritableDatabase();
                             ph_score += possible_points;
                             ContentValues cv = new ContentValues();
-                            cv.put("score", bond_score); //These Fields should be your String values of actual column names
+                            cv.put("score", ph_score); //These Fields should be your String values of actual column names
                             score_db.update("Scoreboards", cv, "id=" + 4, null);
                             Log.i("ph_score = ", ph_score + "");
                         }else if(subject.equals("electro")){
