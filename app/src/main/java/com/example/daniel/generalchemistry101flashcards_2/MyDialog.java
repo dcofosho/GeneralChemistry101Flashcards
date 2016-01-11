@@ -47,55 +47,55 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
                 min=0;
                 max=5;
                 subjectId=100;
-                whereClause="usedId BETWEEN 99 AND 103";
+                whereClause="usedId BETWEEN 99 AND 105";
             } else if(subject.equals("periodic")) {
                 i.putExtra("subject", "periodic");
                 min=0;
                 max=5;
                 subjectId=200;
-                whereClause="usedId BETWEEN 199 AND 203";
+                whereClause="usedId BETWEEN 199 AND 205";
             } else if(subject.equals("atomic")) {
                 i.putExtra("subject", "atomic");
                 min=0;
                 max=5;
                 subjectId=300;
-                whereClause="usedId BETWEEN 299 AND 303";
+                whereClause="usedId BETWEEN 299 AND 305";
             } else if(subject.equals("bonding")) {
                 i.putExtra("subject", "bonding");
                 min=0;
                 max=5;
                 subjectId=400;
-                whereClause="usedId BETWEEN 399 AND 403";
+                whereClause="usedId BETWEEN 399 AND 405";
             }else if(subject.equals("ph")) {
                 i.putExtra("subject", "ph");
                 min=0;
                 max=5;
                 subjectId=500;
-                whereClause="usedId BETWEEN 499 AND 503";
+                whereClause="usedId BETWEEN 499 AND 505";
             }else if(subject.equals("electro")) {
                 i.putExtra("subject", "electro");
                 min=0;
                 max=5;
                 subjectId=600;
-                whereClause="usedId BETWEEN 599 AND 603";
+                whereClause="usedId BETWEEN 599 AND 605";
             }else if(subject.equals("solubility")) {
                 i.putExtra("subject", "solubility");
                 min=0;
                 max=5;
                 subjectId=700;
-                whereClause="usedId BETWEEN 699 AND 703";
+                whereClause="usedId BETWEEN 699 AND 705";
             }else if(subject.equals("solubility")) {
                 i.putExtra("subject", "stoich");
                 min=0;
                 max=5;
                 subjectId=800;
-                whereClause="usedId BETWEEN 799 AND 803";
+                whereClause="usedId BETWEEN 799 AND 805";
             }else {
                 i.putExtra("subject", "thermo");
                 min=0;
                 max=5;
                 subjectId=700;
-                whereClause="usedId BETWEEN 899 AND 903";
+                whereClause="usedId BETWEEN 899 AND 905";
             }
 
 
