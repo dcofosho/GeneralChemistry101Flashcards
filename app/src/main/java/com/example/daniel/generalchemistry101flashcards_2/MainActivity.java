@@ -123,6 +123,7 @@ public class MainActivity extends FragmentActivity {
                 } else if (position == 2) {
                     i = new Intent(MainActivity.this, QuestionActivity.class);
                     i.putExtra("subject", "atomic");
+                    subject = "atomic";
                     arrayList = new ArrayList<>();
                     for (int k = 0; k < 5; k++) {
                         if (!used_Ids.contains(k + 300)) {
@@ -290,9 +291,9 @@ public class MainActivity extends FragmentActivity {
         helper.insertQuestion(solubility_question2);
         Question solubility_question3 = new Question(702, "Aqueous solutions are solutions in which...", "water is the solute", "ions are the solute", "water is the solvent", "The ratio of solute to solvent is 1", "water is the solvent");
         helper.insertQuestion(solubility_question3);
-        Question solubility_question4 = new Question(703, "Molarity (molar) is a unit of concentration defined as:", "moles of solute divided by liters of solvent", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solution", "moles of solute divided by liters of solvent");
+        Question solubility_question4 = new Question(703, "Molarity (molar) is a unit of concentration defined as:", "moles of solute divided by liters of solution", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solution", "moles of solute divided by liters of solution");
         helper.insertQuestion(solubility_question4);
-        Question solubility_question5 = new Question(704, "Molality (molal) is a unit of concentration defined as:", "moles of solute divided by liters of solvent", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solution", "moles of solute divided by kilograms of solution");
+        Question solubility_question5 = new Question(704, "Molality (molal) is a unit of concentration defined as:", "moles of solute divided by liters of solvent", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solvent", "moles of solute divided by kilograms of solvent");
         helper.insertQuestion(solubility_question5);
 
 

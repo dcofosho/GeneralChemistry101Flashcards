@@ -84,7 +84,7 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
                 max=5;
                 subjectId=700;
                 whereClause="usedId BETWEEN 699 AND 705";
-            }else if(subject.equals("solubility")) {
+            }else if(subject.equals("stoich")) {
                 i.putExtra("subject", "stoich");
                 min=0;
                 max=5;
