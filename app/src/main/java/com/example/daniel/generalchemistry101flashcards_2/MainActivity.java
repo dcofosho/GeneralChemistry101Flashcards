@@ -223,7 +223,7 @@ public class MainActivity extends FragmentActivity {
         helper.insertQuestion(units_question3);
         Question units_question4 = new Question(103,"How many centimeters in a kilometer?", "1000", "10,000","100,000", "1,000,000", "100,000");
         helper.insertQuestion(units_question4);
-        Question units_question5 = new Question(104,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Farenheit");
+        Question units_question5 = new Question(104,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Celsius");
         helper.insertQuestion(units_question5);
 
 
@@ -243,7 +243,7 @@ public class MainActivity extends FragmentActivity {
         helper.insertQuestion(atomic_question1);
         Question atomic_question2 = new Question(301, "Different isotopes of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Neutrons");
         helper.insertQuestion(atomic_question2);
-        Question atomic_question3 = new Question(302, "This body of water, opened for shipping in 1869, connects the Mediterranean sea with the Red Sea", "Strait of Gibraltar", "Suez Canal", "Persian Gulf", "Welland Canal", "Suez Canal");
+        Question atomic_question3 = new Question(302, "The chemical behavior of an atom is mostly determined by...", "The valence electrons, i.e. those closest to the nucleus", "The valence electrons, i.e. those furthest to the nucleus", "The inner electrons, i.e. those closest to the nucleus", "All the electrons in the electron cloud", "The valence electrons, i.e. those furthest to the nucleus");
         helper.insertQuestion(atomic_question3);
         Question atomic_question4 = new Question(303, "Different ions of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Electrons");
         helper.insertQuestion(atomic_question4);
@@ -262,62 +262,63 @@ public class MainActivity extends FragmentActivity {
         Question bonding_question5 = new Question(404, "Which is the proper order, from weakest to strongest?", "Ionic, non-polar covalent, polar covalent", "Polar covalent, non-polar covalent, ionic", "non-polar covalent, polar covalent, ionic", "Ionic, polar covalent, non-polar covalent", "non-polar covalent, polar covalent, ionic");
         helper.insertQuestion(bonding_question5);
 
-        Question ph_question1 = new Question(500,"Volume is a measurement of...", "How much matter is in a sample", "How much space a substance takes up","The ratio of a sample's size to mass", "The ratio of mass to size", "How much space a substance takes up");
+        Question ph_question1 = new Question(500,"Strong acids differ from weak acids in that...", "Strong acids are lower on the pH scale", "Weak Acids are soluble in water","Strong acids fully dissociate into ions in solution", "Strong acids only react with strong bases", "Strong acids fully dissociate into ions in solution");
         helper.insertQuestion(ph_question1);
-        Question ph_question2 = new Question(501,"Which unit of length is longest?", "Centimeter", "Nanometer","Milimeter", "Decimeter", "Decimeter");
+        Question ph_question2 = new Question(501,"The modern understanding of acids and bases is described by these three theoretical frameworks...", "Arrhenius, Dalton, Lavoisier", "Bronsted, Lowrey, Lewis","Bronsted, Dalton, and Thompson", "Arrhenius, Bronsted-Lowry, Lewis", "Arrhenius, Bronsted-Lowry, Lewis");
         helper.insertQuestion(ph_question2);
-        Question ph_question3 = new Question(502,"Which correctly describes the difference between mass and weight?", "Mass is measured in kilograms and weight is measured in pounds.", "Objects in space have less mass","Mass is how much matter is in a sample, weight is the force of attraction with the ground", "Mass is the ratio of weight to density", "Mass is how much matter is in a sample, weight is the force of attraction with the ground");
+        Question ph_question3 = new Question(502,"Acids produce which ion in aqueous solutions?", "Hydronium (H+)", "Hydroxide (OH-)","Peroxide (O-)", "Carbonate(CO2-3)", "Hydronium (H+)");
         helper.insertQuestion(ph_question3);
-        Question ph_question4 = new Question(503,"How many centimeters in a kilometer?", "1000", "10,000","100,000", "1,000,000", "100,000");
+        Question ph_question4 = new Question(503,"According to the Bronsted-Lowry theory...", "Acids are electron donors and Bases are proton acceptors", "Acids are proton donors and bases are proton acceptors","Acids are electron acceptors and bases are electron donors", "Acids and bases accept and donate both protons and electrons", "Acids are proton donors and bases are proton acceptors");
         helper.insertQuestion(ph_question4);
-        Question ph_question5 = new Question(504,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Farenheit");
+        Question ph_question5 = new Question(504,"Bases produce which ion in aqueous solutions?", "Hydronium (H+)", "Hydroxide (OH-)","Peroxide (O-)", "Carbonate(CO2-3)", "Hydroxide (OH-)");
         helper.insertQuestion(ph_question5);
 
         Question electro_question1 = new Question(600, "Electrons flow in which direction in a battery (electrochemical cell)?", "Anode to cathode only", "Cathode to anode only", "Both directions", "Depends on the type of battery", "Anode to cathode only");
         helper.insertQuestion(electro_question1);
-        Question electro_question2 = new Question(601, "In an electrolytic cell...?", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from cathode to anode and electricity is used");
+        Question electro_question2 = new Question(601, "In an electrolytic cell...", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from anode to cathode and electricity is used");
         helper.insertQuestion(electro_question2);
         Question electro_question3 = new Question(602, "When an substance is reduced...", "It loses electrons and decreases in charge", "It gains electrons and decreases in charge", "It gains protons and increases in charge", "It gains electrons and increases in charge", "It gains electrons and decreases in charge");
         helper.insertQuestion(electro_question3);
-        Question electro_question4 = new Question(603, "The cathode of a battery...", "is more electronegative than the anode", "is less electronegative than the anode", "has greater molar mass than the anode", "has smaller molar mass than the anode", "more electronegative than the anode");
+        Question electro_question4 = new Question(603, "The cathode of a battery (electrochemical cell)...", "is more electronegative than the anode", "is less electronegative than the anode", "has greater molar mass than the anode", "has smaller molar mass than the anode", "is more electronegative than the anode");
         helper.insertQuestion(electro_question4);
-        Question electro_question5 = new Question(602, "Which book series, written by George RR Martin, became the basis for the TV show Game of Thrones?", "A Game of Thrones", "The Magician's Trilogy", "The Westeros Chronicles", "A Song of Ice and Fire", "A Song of Ice and Fire");
+        Question electro_question5 = new Question(604, "In an electrochemical cell...", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from anode to cathode and electricity is produced");
         helper.insertQuestion(electro_question5);
 
-        Question solubility_question1 = new Question(700, "Which element has the highest electronegativity?", "Fluorine", "Chlorine", "Barium", "Francium", "Fluorine");
+        Question solubility_question1 = new Question(700, "Solutes dissolve in solvents with...", "similar chemical properties", "different chemical properties", "a high number of ions", "a low number of ions", "similar chemical properties");
         helper.insertQuestion(solubility_question1);
-        Question solubility_question2 = new Question(701, "In the periodic table, atomic radius increases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "right to left/top to bottom");
+        Question solubility_question2 = new Question(701, "Oil does not mix with water because", "Oil and water have opposite polarities", "Oil is polar and water is non-polar", "Water is polar and oil is non-polar", "Water is polar and oil is ionic", "Water is polar and oil is non-polar");
         helper.insertQuestion(solubility_question2);
-        Question solubility_question3 = new Question(703, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
+        Question solubility_question3 = new Question(702, "Aqueous solutions are solutions in which...", "water is the solute", "ions are the solute", "water is the solvent", "The ratio of solute to solvent is 1", "water is the solvent");
         helper.insertQuestion(solubility_question3);
-        Question solubility_question4 = new Question(703, "In the periodic table, atomic mass decreases", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
+        Question solubility_question4 = new Question(703, "Molarity (molar) is a unit of concentration defined as:", "moles of solute divided by liters of solvent", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solution", "moles of solute divided by liters of solvent");
         helper.insertQuestion(solubility_question4);
-        Question solubility_question5 = new Question(704, "Metals are elements which....", "try to gain electrons, and are found on the right side of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.", "try to gain electrons, and are found on the top of the periodic table.", "try to lose electrons, and are found on the bottom of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.");
+        Question solubility_question5 = new Question(704, "Molality (molal) is a unit of concentration defined as:", "moles of solute divided by liters of solvent", "moles of solvent divided by liters of solute", "moles of solute divided by liters of solution", "moles of solute divided by kilograms of solution", "moles of solute divided by kilograms of solution");
         helper.insertQuestion(solubility_question5);
 
 
-        Question stoich_question1 = new Question(800, "The charge on an electron is...", "equal to a proton's charge in magnitude and sign", "smaller than a proton's charge in magnitude but equal in sign", "equal to a proton's charge in magnitude but opposite sign", "greater than a protons charge but opposite sign", "equal to a proton's charge in magnitude but opposite sign");
+        Question stoich_question1 = new Question(800, "Which equation shows a double replacement reaction?", "A→BC", "A+B→AB", "AB+CD→AD+CB", "AB+C→AC+B", "AB+CD→AD+CB");
         helper.insertQuestion(stoich_question1);
-        Question stoich_question2 = new Question(801, "Different isotopes of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Neutrons");
+        Question stoich_question2 = new Question(801, "Which equation shows a single replacement reaction?", "A→BC", "A+B→AB", "AB+CD→AD+CB", "AB+C→AC+B", "AB+C→AC+B");
         helper.insertQuestion(stoich_question2);
-        Question stoich_question3 = new Question(802, "This body of water, opened for shipping in 1869, connects the Mediterranean sea with the Red Sea", "Strait of Gibraltar", "Suez Canal", "Persian Gulf", "Welland Canal", "Suez Canal");
+        Question stoich_question3 = new Question(802, "Which equation shows a synthesis reaction?", "A→BC", "A+B→AB", "AB+CD→AD+CB", "AB+C→AC+B", "A+B→AB");
         helper.insertQuestion(stoich_question3);
-        Question stoich_question4 = new Question(803, "Different ions of an element have different numbers of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Electrons");
+        Question stoich_question4 = new Question(803, "The reverse of a synthesis reaction is...", "double replacement","decomposition","single replacement","oxidation","decomposition");
         helper.insertQuestion(stoich_question4);
-        Question stoich_question5 = new Question(804, "All atoms of a given element have the same number of...", "Neutrons", "Protons", "Electrons", "Nuclei", "Protons");
+        Question stoich_question5 = new Question(804, "The reverse of a double replacement reaction is...", "double replacement","decomposition","single replacement","oxidation","double replacement");
         helper.insertQuestion(stoich_question5);
 
 
-        Question thermo_question1 = new Question(900, "Electrons flow in which direction in a battery (electrochemical cell)?", "Anode to cathode only", "Cathode to anode only", "Both directions", "Depends on the type of battery", "Anode to cathode only");
+        Question thermo_question1 = new Question(900, "Exothermic reactions are reactions which...", "release heat", "absorb heat", "for a precipitate", "convert heat to electricity", "release heat");
         helper.insertQuestion(thermo_question1);
-        Question thermo_question2 = new Question(901, "In an electrolytic cell...?", "Electrons flow from anode to cathode and electricity is produced", "Electrons flow from anode to cathode and electricity is used", "Electrons flow from cathode to anode and electricity is produced", "Electrons flow from cathode to anode and electricity is used", "Electrons flow from cathode to anode and electricity is used");
+        Question thermo_question2 = new Question(901, "Endothermic reactions are reactions which...", "release heat", "absorb heat", "for a precipitate", "convert heat to electricity", "absorb heat");
         helper.insertQuestion(thermo_question2);
-        Question thermo_question3 = new Question(902, "When an substance is reduced...", "It loses electrons and decreases in charge", "It gains electrons and decreases in charge", "It gains protons and increases in charge", "It gains electrons and increases in charge", "It gains electrons and decreases in charge");
+        Question thermo_question3 = new Question(902, "Increasing the temperature will have what impact on an exothermic reaction?", "The reaction would slow down", "The reaction would speed up", "The reaction would stop", "The reaction would proceed at the same rate", "The reaction would slow down");
         helper.insertQuestion(thermo_question3);
-        Question thermo_question4 = new Question(904, "The cathode of a battery...", "is more electronegative than the anode", "is less electronegative than the anode", "has greater molar mass than the anode", "has smaller molar mass than the anode", "more electronegative than the anode");
+        Question thermo_question4 = new Question(903, "Increasing the temperature will have what impact on an endothermic reaction?", "The reaction would slow down", "The reaction would speed up", "The reaction would stop", "The reaction would proceed at the same rate", "The reaction would speed up");
         helper.insertQuestion(thermo_question4);
-        Question thermo_question5 = new Question(905, "Which book series, written by George RR Martin, became the basis for the TV show Game of Thrones?", "A Game of Thrones", "The Magician's Trilogy", "The Westeros Chronicles", "A Song of Ice and Fire", "A Song of Ice and Fire");
+        Question thermo_question5 = new Question(904, "Combustion occurs when...", "fuel reacts exothermically with oxygen", "fuel reacts endothermically with oxygen", "fuel reacts exothermically with hydrogen", "fuel reacts endothermically with nitrogen", "fuel reacts exothermically with oxygen");
         helper.insertQuestion(thermo_question5);
+
 
 
         Log.i("Questions", helper.getAllQuestions().toString());
