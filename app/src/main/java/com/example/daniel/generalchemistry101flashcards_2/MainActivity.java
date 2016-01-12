@@ -9,8 +9,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -26,7 +30,7 @@ import java.util.List;
 /**
  * Created by Daniel on 12/27/2015.
  */
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
 
     List<Integer> used_Ids;
@@ -325,6 +329,35 @@ public class MainActivity extends FragmentActivity {
         Log.i("Questions", helper.getAllQuestions().toString());
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater M = getMenuInflater();
+        M.inflate(R.menu.main, menu);
+
+//        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.settings) {
+            Toast.makeText(getApplicationContext(), "clicked on setting", Toast.LENGTH_LONG).show();
+            return true;
+        }else if (id == R.id.bookmarks) {
+            Toast.makeText(getApplicationContext(), "clicked on bookmarks", Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

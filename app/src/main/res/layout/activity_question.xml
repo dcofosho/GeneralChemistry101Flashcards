@@ -67,12 +67,21 @@
     </RadioGroup>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Question"
+        android:onClick="nextQuestion"
+        android:id="@+id/nextQuestionButton"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/submitButton" />
+        android:id="@+id/submitButton"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -84,16 +93,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next Question"
-        android:onClick="nextQuestion"
-        android:id="@+id/nextQuestionButton"
-        android:visibility="invisible" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="New Subject"
         android:onClick="newSubject"
         android:id="@+id/newSubjectButton"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
