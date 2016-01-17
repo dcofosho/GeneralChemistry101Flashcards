@@ -19,6 +19,9 @@
         <activity android:name=".ScoreboardActivity"
             android:label="ScoreboardActivity">
         </activity>
+        <activity android:name=".periodicActivity"
+            android:label="ScoreboardActivity">
+        </activity>
 </application>
 
     </manifest>

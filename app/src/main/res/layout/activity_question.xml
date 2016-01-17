@@ -109,9 +109,17 @@
             android:layout_height="wrap_content"
             android:text="Periodic Table"
             android:id="@+id/button"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="seeTable"/>
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highdefTable"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/highdef_table"
+        android:visibility="invisible"/>
 
 
 </LinearLayout>

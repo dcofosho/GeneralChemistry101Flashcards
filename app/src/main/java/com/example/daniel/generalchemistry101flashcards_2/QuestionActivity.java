@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -466,6 +467,10 @@ public class QuestionActivity extends Activity  {
 
     public void seeScoreBoard(View v){
         Intent intent = new Intent(QuestionActivity.this, ScoreboardActivity.class);
+        startActivity(intent);
+    }
+    public void seeTable(View v){
+        Intent intent = new Intent(QuestionActivity.this, periodicActivity.class);
         startActivity(intent);
     }
 
