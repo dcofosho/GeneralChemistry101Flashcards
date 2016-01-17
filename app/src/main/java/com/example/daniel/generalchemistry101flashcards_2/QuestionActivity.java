@@ -213,19 +213,19 @@ public class QuestionActivity extends Activity  {
         } catch (Exception e){
             stoich_score = 0;
             Scoreboard stoich_scoreboard = new Scoreboard(7, "stoich", stoich_score);
-            scoreboardHelper.insertScoreboard(stoich_scoreboard);
-            Log.i("stoich_score = ", stoich_score+"");
-        }
 
-        try{
-            thermo_score=scoreboardHelper.readScoreboard(8).getScore();
-        } catch (Exception e){
-            thermo_score = 0;
-            Scoreboard thermo_scoreboard = new Scoreboard(8, "thermo", thermo_score);
-            scoreboardHelper.insertScoreboard(thermo_scoreboard);
-            Log.i("thermo_score = ", thermo_score+"");
-        }
+        scoreboardHelper.insertScoreboard(stoich_scoreboard);
+        Log.i("stoich_score = ", stoich_score+"");
+    }
 
+    try{
+        thermo_score=scoreboardHelper.readScoreboard(8).getScore();
+    } catch (Exception e){
+        thermo_score = 0;
+        Scoreboard thermo_scoreboard = new Scoreboard(8, "thermo", thermo_score);
+        scoreboardHelper.insertScoreboard(thermo_scoreboard);
+        Log.i("thermo_score = ", thermo_score+"");
+    }
         Log.i("Scoreboards", scoreboardHelper.getAllScoreboards().toString());
         Log.i("units_scoreboard", scoreboardHelper.readScoreboard(0).getScore()+"");
         score=units_score+periodic_score+atomic_score+bond_score+ph_score+electro_score+solubility_score+stoich_score+thermo_score;
@@ -431,7 +431,7 @@ public class QuestionActivity extends Activity  {
             mIntent.putExtra("periodic_score", periodic_score);
             mIntent.putExtra("atomic_score", atomic_score);
             mIntent.putExtra("bond_score", bond_score);
-        mIntent.putExtra("ph_score", ph_score);
+            mIntent.putExtra("ph_score", ph_score);
             mIntent.putExtra("electro_score", electro_score);
             mIntent.putExtra("solubility_score", solubility_score);
             mIntent.putExtra("stoich_score", stoich_score);
@@ -445,6 +445,15 @@ public class QuestionActivity extends Activity  {
 //        arrayList.remove(arrayList.indexOf(questionId));
         Intent intent;
         intent = new Intent(QuestionActivity.this, MainActivity.class);
+        intent.putExtra("units_score", units_score);
+        intent.putExtra("periodic_score", periodic_score);
+        intent.putExtra("atomic_score", atomic_score);
+        intent.putExtra("bond_score", bond_score);
+        intent.putExtra("ph_score", ph_score);
+        intent.putExtra("electro_score", electro_score);
+        intent.putExtra("solubility_score", solubility_score);
+        intent.putExtra("stoich_score", stoich_score);
+        intent.putExtra("thermo_score", thermo_score);
         intent.putExtra("starting_over", false);
         finish();
         startActivity(intent);

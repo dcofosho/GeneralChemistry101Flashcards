@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> usedIds;
     MyDialog dialog;
     String subject;
+    int units_score;
+    int periodic_score;
+    int atomic_score;
+    int bond_score;
+    int ph_score;
+    int electro_score;
+    int solubility_score;
+    int stoich_score;
+    int thermo_score;
+    int score;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +61,60 @@ public class MainActivity extends AppCompatActivity {
         used_Ids=idHelper.getAllUsedIds();
         System.out.println("usedId list in mainactivity"+used_Ids);
 
+        try{
+            units_score=extras.getInt("units_score");
+        } catch (Exception e){
+            units_score = 0;
+        }
+        try{
+           periodic_score=extras.getInt("periodic_score");
+        } catch (Exception e){
+            periodic_score = 0;
+        }
 
+        try{
+            atomic_score=extras.getInt("atomic_score");
+        } catch (Exception e){
+            atomic_score = 0;
+        }
+
+        try{
+            bond_score=extras.getInt("bond_score");
+        } catch (Exception e){
+            bond_score = 0;
+        }
+
+        try{
+            ph_score=extras.getInt("ph_score");
+        } catch (Exception e){
+            ph_score = 0;
+        }
+
+        try{
+            electro_score=extras.getInt("electro_score");
+        } catch (Exception e){
+            electro_score = 0;
+        }
+
+
+        try{
+            solubility_score=extras.getInt("solubility_score");
+        } catch (Exception e){
+            solubility_score = 0;
+        }
+
+        try{
+            stoich_score=extras.getInt("stoich_score");
+        } catch (Exception e){
+            stoich_score = 0;
+        }
+
+        try{
+            thermo_score=extras.getInt("thermo_score");
+        } catch (Exception e){
+            thermo_score = 0;
+        }
+        score=units_score+periodic_score+atomic_score+bond_score+ph_score+electro_score+solubility_score+stoich_score+thermo_score;
 
 
 
@@ -353,7 +416,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "clicked on setting", Toast.LENGTH_LONG).show();
             return true;
         }else if (id == R.id.bookmarks) {
-            Toast.makeText(getApplicationContext(), "clicked on bookmarks", Toast.LENGTH_LONG).show();
+            Intent intent;
+            intent = new Intent(MainActivity.this, ScoreboardActivity.class);
+            intent.putExtra("units_score", units_score);
+            intent.putExtra("periodic_score", periodic_score);
+            intent.putExtra("atomic_score", atomic_score);
+            intent.putExtra("bond_score", bond_score);
+            intent.putExtra("ph_score", ph_score);
+            intent.putExtra("electro_score", electro_score);
+            intent.putExtra("solubility_score", solubility_score);
+            intent.putExtra("stoich_score", stoich_score);
+            intent.putExtra("thermo_score", thermo_score);
+//            finish();
+            startActivity(intent);
+//            Toast.makeText(getApplicationContext(), "clicked on bookmarks", Toast.LENGTH_LONG).show();
             return true;
         }
 
