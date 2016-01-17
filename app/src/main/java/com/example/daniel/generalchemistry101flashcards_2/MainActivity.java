@@ -412,10 +412,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.settings) {
-            Toast.makeText(getApplicationContext(), "clicked on setting", Toast.LENGTH_LONG).show();
-            return true;
-        }else if (id == R.id.bookmarks) {
+        if (id == R.id.bookmarks) {
             Intent intent;
             intent = new Intent(MainActivity.this, ScoreboardActivity.class);
             intent.putExtra("units_score", units_score);

@@ -64,7 +64,7 @@ public class QuestionActivity extends Activity  {
     Button nextQuestionButton;
     Button newSubjectButton;
     String subject;
-    int possible_points=300;
+    int possible_points=7500;
     int score;
     int units_score;
     int periodic_score;
@@ -414,7 +414,7 @@ public class QuestionActivity extends Activity  {
                                 radioButtonSelected.getText() + " is wrong!", Toast.LENGTH_SHORT).show();
                         radioButtonSelected.setText(radioButtonSelected.getText() + " is wrong!, try again!");
                         radioButtonSelected.setTextColor(getResources().getColor(R.color.red));
-                        possible_points -= 100;
+                        possible_points -= 2500;
                     }
                 } else{
                     Toast.makeText(QuestionActivity.this,
