@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -294,7 +297,9 @@ public class QuestionActivity extends Activity  {
 
             addListenerOnButton();
         }
+
     }
+
 
 
     public void addListenerOnButton() {
@@ -456,6 +461,11 @@ public class QuestionActivity extends Activity  {
         intent.putExtra("thermo_score", thermo_score);
         intent.putExtra("starting_over", false);
         finish();
+        startActivity(intent);
+    }
+
+    public void seeScoreBoard(View v){
+        Intent intent = new Intent(QuestionActivity.this, ScoreboardActivity.class);
         startActivity(intent);
     }
 

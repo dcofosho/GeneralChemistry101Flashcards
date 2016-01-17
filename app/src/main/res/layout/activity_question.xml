@@ -87,16 +87,31 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Subject"
+            android:onClick="newSubject"
+            android:id="@+id/newSubjectButton"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scoreboard"
+            android:id="@+id/button2"
+            android:layout_gravity="center_horizontal"
+            android:onClick="seeScoreBoard"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Periodic Table"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Subject"
-        android:onClick="newSubject"
-        android:id="@+id/newSubjectButton"
-        android:visibility="visible"
-        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout>
