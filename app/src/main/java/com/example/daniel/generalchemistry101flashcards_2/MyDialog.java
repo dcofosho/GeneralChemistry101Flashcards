@@ -45,13 +45,13 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
             if(subject.equals("units")) {
                 i.putExtra("subject", "units");
                 min=0;
-                max=5;
+                max=20;
                 subjectId=100;
                 whereClause="usedId BETWEEN 99 AND 105";
             } else if(subject.equals("periodic")) {
                 i.putExtra("subject", "periodic");
                 min=0;
-                max=5;
+                max=10;
                 subjectId=200;
                 whereClause="usedId BETWEEN 199 AND 205";
             } else if(subject.equals("atomic")) {
@@ -113,8 +113,6 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
 //            toast.show();
             this.dismiss();
         }else{
-            Toast toast = Toast.makeText(getActivity(), "New Subject clicked"+subject, Toast.LENGTH_LONG);
-            toast.show();
             this.dismiss();
         }
     }

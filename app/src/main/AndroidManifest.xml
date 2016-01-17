@@ -3,7 +3,7 @@
 
     <application
     android:allowBackup="true"
-    android:icon="@drawable/thermo"
+    android:icon="@drawable/thermo2"
     android:label="General Chemistry Quizes"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">

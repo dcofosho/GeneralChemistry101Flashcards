@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("subject", "units");
                     subject = "units";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 5; k++) {
+                    for (int k = 0; k < 20; k++) {
                         if (!used_Ids.contains(k + 100)) {
                             arrayList.add(k + 100);
                         }
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("subject", "periodic");
                     subject = "periodic";
                     arrayList = new ArrayList<>();
-                    for (int k = 0; k < 5; k++) {
+                    for (int k = 0; k < 10; k++) {
                         if (!used_Ids.contains(k + 200)) {
                             arrayList.add(k + 200);
                         }
@@ -291,8 +291,40 @@ public class MainActivity extends AppCompatActivity {
         helper.insertQuestion(units_question3);
         Question units_question4 = new Question(103,"How many centimeters in a kilometer?", "1000", "10,000","100,000", "1,000,000", "100,000");
         helper.insertQuestion(units_question4);
-        Question units_question5 = new Question(104,"Water freezes at what temperature?", "0 Celsius", "0 Farenheit", "0 Kelvin", "27 Farenheit", "0 Celsius");
+        Question units_question5 = new Question(104,"Water freezes at what temperature?", "0 Celsius", "0 Fahrenheit", "0 Kelvin", "27 Farenheit", "0 Celsius");
         helper.insertQuestion(units_question5);
+        Question units_question6=new Question(105, "What is the SI Unit for pressure?", "Pascal", "Newton", "Joule", "Kilojoule","Pascal");
+        helper.insertQuestion(units_question6);
+        Question units_question7=new Question(106, "Standard atmospheric pressure is...", "1 Pa", "100 bar","50 mmHg", "101.325 kPa","101.325 kPa");
+        helper.insertQuestion(units_question7);
+        Question units_question8=new Question(107, "Typical ambient temperature (i.e. 'room temperature') is around...", "20 K", "20 C", "0 C", "0K", "20 C");
+        helper.insertQuestion(units_question8);
+        Question units_question9 = new Question(108,"Water boils at what temperature?", "100 Celsius", "100 Fahrenheit", "1000 Kelvin", "27 Fahrenheit", "100 Celsius");
+        helper.insertQuestion(units_question9);
+        Question units_question10 = new Question(109, "All of the following are units of pressure except...", "Bar", "Atmosphere", "Milimeters of Hg", "Joule", "Joule");
+        helper.insertQuestion(units_question10);
+        Question units_question11 = new Question(110,"Which unit of length is longest?", "Kilometer", "Hectometer","Megameter", "Picometer", "Megameter");
+        helper.insertQuestion(units_question11);
+        Question units_question12 = new Question(111,"How many megabytes are in a gigabyte?", "a million", "a thousand","a billion", "1/1000", "a thousand");
+        helper.insertQuestion(units_question12);
+        Question units_question13 = new Question(112,"How many kilobytes are in a gigabyte?", "a million", "a thousand","a billion", "1/1000", "a million");
+        helper.insertQuestion(units_question13);
+        Question units_question14 = new Question(113,"How many kilobytes are in a megabyte?", "a million", "a thousand","a billion", "1/1000", "a thousand");
+        helper.insertQuestion(units_question14);
+        Question units_question15 = new Question(114, "What is absolute zero?", "The temperature at which all liquids freeze","Exactly 0 degrees Celsius", "0 degrees Fahrenheit", "The theoretical coldest temperature possible", "The theoretical coldest temperature possible");
+        helper.insertQuestion(units_question15);
+        Question units_question16 = new Question(115, "What is absolute zero?", "-450 C","0 Kelvin", "-273 F", "-100K", "0 Kelvin");
+        helper.insertQuestion(units_question16);
+        Question units_question17=new Question(116, "What is the SI Unit for Energy?", "Watt", "Newton", "Joule", "Kilowatt","Joule");
+        helper.insertQuestion(units_question17);
+        Question units_question18=new Question(117, "What is the SI Unit for Volume?", "Liter", "Gallon", "Quart", "Cubic Meter","Liter");
+        helper.insertQuestion(units_question18);
+        Question units_question19=new Question(118, "What is the SI Unit for Mass?", "Pound", "Kilogram", "Liter", "Cubic Meter","Kilogram");
+        helper.insertQuestion(units_question19);
+        Question units_question20=new Question(119, "Density is...", "mass divided by volume", "mass divided by diameter", "volume divided by mass", "lengths divided by mass squared","mass divided by volume");
+        helper.insertQuestion(units_question20);
+
+
 
 
         Question periodic_question1 = new Question(200, "Which element has the highest electronegativity?", "Fluorine", "Chlorine", "Barium", "Francium", "Fluorine");
@@ -301,10 +333,20 @@ public class MainActivity extends AppCompatActivity {
         helper.insertQuestion(periodic_question2);
         Question periodic_question3 = new Question(202, "Atomic number is...", "The number of neutrons in an element's nucleus", "The ratio of protons to neutrons", "The number of protons in an atom's nucleus", "The ratio of protons to electrons", "The number of protons in an atom's nucleus");
         helper.insertQuestion(periodic_question3);
-        Question periodic_question4 = new Question(203, "In the periodic table, atomic mass decreases", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
+        Question periodic_question4 = new Question(203, "In the periodic table, atomic mass decreases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
         helper.insertQuestion(periodic_question4);
         Question periodic_question5 = new Question(204, "Metals are elements which....", "try to gain electrons, and are found on the right side of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.", "try to gain electrons, and are found on the top of the periodic table.", "try to lose electrons, and are found on the bottom of the periodic table.", "try to lose electrons, and are found on the left side of the periodic table.");
         helper.insertQuestion(periodic_question5);
+        Question periodic_question6 = new Question(205, "Which element has the largest atomic radius?", "Fluorine", "Chlorine", "Bromine", "Iodine", "Iodine");
+        helper.insertQuestion(periodic_question6);
+        Question periodic_question7 = new Question(206, "Which element has the largest atomic radius?", "Silicon (Si)", "Phosphorous (P)", "Sulfur (S)", "Chlorine (Cl)", "Silicon (Si)");
+        helper.insertQuestion(periodic_question7);
+        Question periodic_question8 = new Question(207, "Which element has the smallest atomic radius?", "Silicon (Si)", "Phosphorous (P)", "Sodium (Na)", "Magnesium (Mg)", "Sodium (Na)");
+        helper.insertQuestion(periodic_question8);
+        Question periodic_question9 = new Question(208, "In the periodic table, first ionization energy increases...", "from left to right/top to bottom", "right to left/top to bottom", "left to right/bottom to top", "right to left/bottom to top", "left to right/bottom to top");
+        helper.insertQuestion(periodic_question9);
+        Question periodic_question10 = new Question(209, "Most elements on the periodic table are...", "Metals", "Non-metals", "Metalloids", "Gases", "Metals");
+        helper.insertQuestion(periodic_question10);
 
 
         Question atomic_question1 = new Question(300, "The charge on an electron is...", "equal to a proton's charge in magnitude and sign", "smaller than a proton's charge in magnitude but equal in sign", "equal to a proton's charge in magnitude but opposite sign", "greater than a protons charge but opposite sign", "equal to a proton's charge in magnitude but opposite sign");

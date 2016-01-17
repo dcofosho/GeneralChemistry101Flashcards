@@ -1,18 +1,12 @@
 package com.example.daniel.generalchemistry101flashcards_2;
 
 import android.app.Activity;
-import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 /**
  * Created by Daniel on 1/12/2016.
@@ -40,8 +34,6 @@ public class ScoreboardActivity extends Activity {
     int stoich_score;
     int thermo_score;
     Bundle extras;
-    String subject;
-    Button sbSubmitButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,59 +53,6 @@ public class ScoreboardActivity extends Activity {
         SQLiteDatabase id_db2 = idHelper.getWritableDatabase();
         ScoreboardHelper scoreboardHelper = new ScoreboardHelper(this);
         SQLiteDatabase score_db = scoreboardHelper.getWritableDatabase();
-//        try{
-//            units_score=extras.getInt("units_score");
-//        } catch (Exception e){
-//            units_score = 0;
-//        }
-//        try{
-//            periodic_score=extras.getInt("periodic_score");
-//        } catch (Exception e){
-//            periodic_score = 0;
-//        }
-//
-//        try{
-//            atomic_score=extras.getInt("atomic_score");
-//        } catch (Exception e){
-//            atomic_score = 0;
-//        }
-//
-//        try{
-//            bond_score=extras.getInt("bond_score");
-//        } catch (Exception e){
-//            bond_score = 0;
-//        }
-//
-//        try{
-//            ph_score=extras.getInt("ph_score");
-//        } catch (Exception e){
-//            ph_score = 0;
-//        }
-//
-//        try{
-//            electro_score=extras.getInt("electro_score");
-//        } catch (Exception e){
-//            electro_score = 0;
-//        }
-//
-//
-//        try{
-//            solubility_score=extras.getInt("solubility_score");
-//        } catch (Exception e){
-//            solubility_score = 0;
-//        }
-//
-//        try{
-//            stoich_score=extras.getInt("stoich_score");
-//        } catch (Exception e){
-//            stoich_score = 0;
-//        }
-//
-//        try{
-//            thermo_score=extras.getInt("thermo_score");
-//        } catch (Exception e){
-//            thermo_score = 0;
-//        }
         try{
             units_score=scoreboardHelper.readScoreboard(0).getScore();
         } catch (Exception e){
@@ -209,10 +148,5 @@ public class ScoreboardActivity extends Activity {
         scoreSolubility.setText(""+solubility_score);
         scoreStoich.setText(""+stoich_score);
         scoreThermo.setText(""+thermo_score);
-
-
     }
-
-
-
 }

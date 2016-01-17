@@ -1,30 +1,18 @@
 package com.example.daniel.generalchemistry101flashcards_2;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,7 +31,6 @@ public class QuestionActivity extends Activity  {
     RadioButton radioButton4;
     Button submitButton;
     RadioButton radioButtonSelected;
-
     Question this_question;
     String question_text;
     String choice1_text;
@@ -52,12 +39,7 @@ public class QuestionActivity extends Activity  {
     String choice4_text;
     String correctChoice_text;
     Bundle extras;
-
     ArrayList<Integer> arrayList;
-    ArrayList<String> finishedSubjects;
-    ArrayList<Integer> usedIdList;
-//    ArrayList<Integer> usedIntIds;
-//    List<UsedId> used_Ids;
     int questionId;
 
     TextView tryAgainTextView;
@@ -233,24 +215,7 @@ public class QuestionActivity extends Activity  {
         Log.i("Scoreboards", scoreboardHelper.getAllScoreboards().toString());
         Log.i("units_scoreboard", scoreboardHelper.readScoreboard(0).getScore()+"");
         score=units_score+periodic_score+atomic_score+bond_score+ph_score+electro_score+solubility_score+stoich_score+thermo_score;
-
-//        IdHelper idHelper = new IdHelper(this);
-//        SQLiteDatabase id_db = idHelper.getWritableDatabase();
-//        score=extras.getInt("score");
         arrayList= getIntent().getIntegerArrayListExtra("id_range");
-//        UsedId usedId = new UsedId(arrayList.get(0));
-//        idHelper.insertUsedId(usedId);
-//        for(int i=0; i<idHelper.getAllUsedIds().size();i++) {
-//            usedIdList.add(Integer.parseInt(idHelper.getAllUsedIds().get(i).toString()));
-//        }
-//        System.out.println(usedIdList + "used_ids");
-
-
-//        used_Ids=getIntent().getIntegerArrayListExtra("used_Ids");
-
-
-
-
 
         if(arrayList.isEmpty()){
             Intent intent;
@@ -327,7 +292,7 @@ public class QuestionActivity extends Activity  {
 
                     if (radioButtonSelected.getText().equals(correctChoice_text)) {
                         Toast.makeText(QuestionActivity.this,
-                                radioButtonSelected.getText() + " is correct!", Toast.LENGTH_SHORT).show();
+                                " correct! :)", Toast.LENGTH_SHORT).show();
                         radioButtonSelected.setText(radioButtonSelected.getText() + " is correct!");
                         radioButtonSelected.setTextColor(getResources().getColor(R.color.green));
                         submitButton.setVisibility(View.INVISIBLE);
@@ -411,7 +376,7 @@ public class QuestionActivity extends Activity  {
                         scoreTextView.setText("your score is "+score);
                     } else {
                         Toast.makeText(QuestionActivity.this,
-                                radioButtonSelected.getText() + " is wrong!", Toast.LENGTH_SHORT).show();
+                                " That's wrong :(", Toast.LENGTH_SHORT).show();
                         radioButtonSelected.setText(radioButtonSelected.getText() + " is wrong!, try again!");
                         radioButtonSelected.setTextColor(getResources().getColor(R.color.red));
                         possible_points -= 2500;
@@ -447,8 +412,6 @@ public class QuestionActivity extends Activity  {
             startActivity(mIntent);
     }
     public void newSubject(View v){
-//        used_Ids.add(questionId);
-//        arrayList.remove(arrayList.indexOf(questionId));
         Intent intent;
         intent = new Intent(QuestionActivity.this, MainActivity.class);
         intent.putExtra("units_score", units_score);
