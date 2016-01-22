@@ -224,12 +224,11 @@ public class QuestionActivity extends Activity  {
             finish();
             startActivity(intent);
         } else {
-            IdHelper idHelper = new IdHelper(this);
-            SQLiteDatabase id_db = idHelper.getWritableDatabase();
+
             questionId = arrayList.get(0);
-            idHelper.insertUsedId(new UsedId(arrayList.get(0)));
-            List<Integer>used_Ids=idHelper.getAllUsedIds();
-            System.out.println("usedId list in Questionactivity" + used_Ids);
+
+            arrayList.remove(arrayList.indexOf(questionId));
+
             DBHelper helper = new DBHelper(this);
             SQLiteDatabase db = helper.getReadableDatabase();
             this_question = helper.readQuestion(questionId);
@@ -250,7 +249,7 @@ public class QuestionActivity extends Activity  {
             nextQuestionButton=(Button) findViewById(R.id.nextQuestionButton);
             newSubjectButton=(Button) findViewById(R.id.newSubjectButton);
 
-            if (arrayList.size()==1){
+            if (arrayList.isEmpty()){
                 lastQuestionTextView.setText("Final Question in Topic");
                 lastQuestionTextView.setVisibility(View.VISIBLE);
             }
@@ -280,7 +279,7 @@ public class QuestionActivity extends Activity  {
             @Override
             public void onClick(View v) {
 
-                if (arrayList.size()==1){
+                if (arrayList.isEmpty()){
                     nextQuestionButton.setText("Congratulations, you've answered all questions for this topic! Pick a new topic.");
                 }
                 if(radioButton1.isChecked()||radioButton2.isChecked()||radioButton3.isChecked()||radioButton4.isChecked()) {
@@ -373,7 +372,15 @@ public class QuestionActivity extends Activity  {
                             Log.i("thermo_score = ", thermo_score + "");
                         }
                         score=units_score+periodic_score+atomic_score+bond_score+ph_score+electro_score+solubility_score+stoich_score+thermo_score;
-                        scoreTextView.setText("your score is "+score);
+                        scoreTextView.setText("your score is " + score);
+                        IdHelper idHelper = new IdHelper(getBaseContext());
+                        SQLiteDatabase id_db = idHelper.getWritableDatabase();
+                        List<Integer>used_Ids=idHelper.getAllUsedIds();
+                        System.out.println("usedId list in Questionactivity" + used_Ids);
+                        if(!used_Ids.contains(new UsedId(questionId))) {
+                            idHelper.insertUsedId(new UsedId(questionId));
+                        }
+
                     } else {
                         Toast.makeText(QuestionActivity.this,
                                 " That's wrong :(", Toast.LENGTH_SHORT).show();
@@ -393,7 +400,7 @@ public class QuestionActivity extends Activity  {
     }
 
     public void nextQuestion(View v){
-            arrayList.remove(arrayList.indexOf(questionId));
+
             Collections.shuffle(arrayList);
             Intent mIntent = getIntent();
             mIntent.putExtra("subject", extras.getString("subject"));
