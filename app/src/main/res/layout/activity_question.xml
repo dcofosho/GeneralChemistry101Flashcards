@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/thermo2">
+    android:background="@drawable/thermo2"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,40 +88,32 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.99">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Subject"
             android:onClick="newSubject"
             android:id="@+id/newSubjectButton"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scoreboard"
-            android:id="@+id/button2"
-            android:layout_gravity="center_horizontal"
-            android:onClick="seeScoreBoard"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Periodic Table"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal"
-            android:onClick="seeTable"/>
     </LinearLayout>
 
-    <ImageView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/highdefTable"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/highdef_table"
-        android:visibility="invisible"/>
+        android:text="Scoreboard"
+        android:id="@+id/button2"
+        android:onClick="seeScoreBoard"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Periodic Table"
+        android:id="@+id/button"
+        android:onClick="seeTable"/>
 
 
 </LinearLayout>
