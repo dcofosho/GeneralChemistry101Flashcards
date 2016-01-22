@@ -247,7 +247,7 @@ public class QuestionActivity extends Activity  {
             radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
             radioButton4 = (RadioButton) findViewById(R.id.radioButton4);
             nextQuestionButton=(Button) findViewById(R.id.nextQuestionButton);
-            newSubjectButton=(Button) findViewById(R.id.newSubjectButton);
+//            newSubjectButton=(Button) findViewById(R.id.newSubjectButton);
 
             if (arrayList.isEmpty()){
                 lastQuestionTextView.setText("Final Question in Topic");
@@ -272,7 +272,7 @@ public class QuestionActivity extends Activity  {
         radioChoices = (RadioGroup) findViewById(R.id.radioChoices);
         submitButton = (Button) findViewById(R.id.submitButton);
         nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
-        newSubjectButton = (Button) findViewById(R.id.newSubjectButton);
+//        newSubjectButton = (Button) findViewById(R.id.newSubjectButton);
         tryAgainTextView=(TextView) findViewById(R.id.tryAgainTextView);
         submitButton.setOnClickListener(new View.OnClickListener() {
 
@@ -296,7 +296,7 @@ public class QuestionActivity extends Activity  {
                         radioButtonSelected.setTextColor(getResources().getColor(R.color.green));
                         submitButton.setVisibility(View.INVISIBLE);
                         nextQuestionButton.setVisibility(View.VISIBLE);
-                        newSubjectButton.setVisibility(View.VISIBLE);
+//                        newSubjectButton.setVisibility(View.VISIBLE);
 
                         if(subject.equals("units")) {
                             ScoreboardHelper scoreboardHelper = new ScoreboardHelper(getBaseContext());
